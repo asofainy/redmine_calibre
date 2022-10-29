@@ -1,5 +1,5 @@
-Redmine::Plugin.register :calibre do
-  name 'Calibre plugin'
+Redmine::Plugin.register :redmine_calibre do
+  name 'Redmine Calibre plugin'
   author 'Anass SOFAINY'
   url ''
   author_url ''
@@ -15,6 +15,7 @@ Redmine::Plugin.register :calibre do
       'calibre_web_protocol' => 'http',
       'calibre_web_hostname' => 'localhost',
       'calibre_web_port' => '80' ,
+      'extensions' => ['.pdf'] 
     }
   
 end
