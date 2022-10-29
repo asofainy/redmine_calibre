@@ -1,0 +1,3 @@
+
+    <span class="icon icon-magnifier icon-magnifier"><a href="<%= Setting.plugin_calibre["calibre_web_protocol"] + "://" + Setting.plugin_calibre["calibre_web_hostname"] + ":" + Setting.plugin_calibre["calibre_web_port"] + "/search/stored/?query=" + File.basename(@attachment.filename, ".*") %>" target="_blank">Lien Calibre (Web)</a></span>
+    <span class="icon icon-magnifier icon-magnifier"><a href="calibre://search/<%= Setting.plugin_calibre["calibre_library"] + "?q=" + File.basename(@attachment.filename, ".*") %>" target="_blank">Lien Calibre (Desktop) </a></span>       

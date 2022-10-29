@@ -20,9 +20,9 @@
 %>
 
 <div>
-  <p class="contextual" style="float: left;">
-    <span class="icon icon-magnifier icon-magnifier"><a href="<%= Setting.plugin_calibre["calibre_web_protocol"] + "://" + Setting.plugin_calibre["calibre_web_hostname"] + ":" + Setting.plugin_calibre["calibre_web_port"] + "/search/stored/?query=" + File.basename(@entry.name, ".*") %>" target="_blank">Lien Calibre (Web)</a></span>
-    <span class="icon icon-magnifier icon-magnifier"><a href="calibre://search/<%= Setting.plugin_calibre["calibre_library"] + "?q=" + File.basename(@entry.name, ".*") %>" target="_blank">Lien Calibre (Desktop) </a></span>       
+  <p class="contextual">
+    <%= render :partial => 'calibre_links' %>
+    test
     <%= link_to l(:button_update), reloadpath, :class => "icon icon-reload" %>
     <%= call_hook(:preview_repository_entry_contextual, :repository => @repository, :path => @path, :rev => @rev, :entry => @entry, :project => @project ) %>
   </p>
