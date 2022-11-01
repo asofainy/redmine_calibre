@@ -1,0 +1,4 @@
+  <% if Setting.plugin_redmine_calibre["extensions"].include? File.extname(filename) %> 
+    <span class="icon icon-magnifier icon-magnifier"><a href="<%= Setting.plugin_redmine_calibre["calibre_web_protocol"] + "://" + Setting.plugin_redmine_calibre["calibre_web_hostname"] + ":" + Setting.plugin_redmine_calibre["calibre_web_port"] + "/search/stored/?query=" + File.basename(filename, ".*") %>" target="_blank">Calibre (Web)</a></span>
+    <span class="icon icon-magnifier icon-magnifier"><a href="calibre://search/<%= Setting.plugin_redmine_calibre["calibre_library"] + "?q=" + File.basename(filename, ".*") %>" target="_blank">Calibre (Desktop) </a></span>       
+  <% end %>

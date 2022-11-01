@@ -1,6 +1,7 @@
 <%= call_hook(:view_repositories_show_contextual, { :repository => @repository, :project => @project }) %>
 
 <div class="contextual">
+  <%= render :partial => 'common/calibre', locals: { :filename => @path } %>
   <%= render :partial => 'navigation' %>
 </div>
 
@@ -20,9 +21,7 @@
 %>
 
 <div>
-  <p class="contextual" style="float: left;">
-    <span class="icon icon-magnifier icon-magnifier"><a href="<%= Setting.plugin_calibre["calibre_web_protocol"] + "://" + Setting.plugin_calibre["calibre_web_hostname"] + ":" + Setting.plugin_calibre["calibre_web_port"] + "/search/stored/?query=" + File.basename(@entry.name, ".*") %>" target="_blank">Lien Calibre (Web)</a></span>
-    <span class="icon icon-magnifier icon-magnifier"><a href="calibre://search/<%= Setting.plugin_calibre["calibre_library"] + "?q=" + File.basename(@entry.name, ".*") %>" target="_blank">Lien Calibre (Desktop) </a></span>       
+  <p class="contextual">
     <%= link_to l(:button_update), reloadpath, :class => "icon icon-reload" %>
     <%= call_hook(:preview_repository_entry_contextual, :repository => @repository, :path => @path, :rev => @rev, :entry => @entry, :project => @project ) %>
   </p>
@@ -42,7 +41,7 @@
       <% end %>
     <% end %>
     </div>
-
+    
   <%- when "jpg", "jpeg", "png", "gif" %>
     <%= image_tag(
           url_for({
@@ -52,7 +51,7 @@
                 :repository_id => @repository.identifier_param,
                 :rev           => @rev,
                 :path          => @path,
-                :format        => RedmineMorePreviews::Converter.conversion_ext( @entry.name, :pathonly => true),
+                :format        => RedmineMorePreviews::Converter.conversion_ext( @entry.name, :pathonly => true), 
                 :only_path     => ::Setting['plugin_redmine_more_previews']['absolute'].to_i == 0
                 }.merge(request.query_parameters)
           ),
@@ -79,7 +78,7 @@
                  :repository_id => @repository.identifier_param,
                  :rev           => @rev,
                  :path          => @path,
-                 :format        => RedmineMorePreviews::Converter.conversion_ext( @entry.name, :pathonly => true),
+                 :format        => RedmineMorePreviews::Converter.conversion_ext( @entry.name, :pathonly => true), 
                  :only_path     => ::Setting['plugin_redmine_more_previews']['absolute'].to_i == 0
                  }.merge(request.query_parameters)
            ),
@@ -96,3 +95,6 @@
 <% content_for :header_tags do %>
   <%= stylesheet_link_tag "scm" %>
 <% end %>
+
+
+

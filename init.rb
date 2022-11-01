@@ -1,11 +1,11 @@
-Redmine::Plugin.register :calibre do
-  name 'Calibre plugin'
+Redmine::Plugin.register :redmine_calibre do
+  name 'Redmine Calibre plugin'
   author 'Anass SOFAINY'
   url ''
   author_url ''
 
   description 'Plugin pour afficher les livres dans la librairie Calibre'
-  version '0.0.1'
+  version '1.0.0'
   requires_redmine version_or_higher: '4.1.3'
 
   settings partial: 'settings/calibre_settings',
@@ -15,6 +15,7 @@ Redmine::Plugin.register :calibre do
       'calibre_web_protocol' => 'http',
       'calibre_web_hostname' => 'localhost',
       'calibre_web_port' => '80' ,
+      'extensions' => ['.pdf'] 
     }
   
 end

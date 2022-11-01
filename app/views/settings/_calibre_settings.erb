@@ -22,17 +22,20 @@
     <tr>
       <th>Protocol</th>
       <td>
-        <label for="calibre_web_protocol_http">http</label>
-        <input type="radio" id="calibre_web_protocol_http" 
-                           value="http" 
-                           name="settings[calibre_web_protocol]" >
+          <p>
+            <label><%= "http"  %></label>
+              <%= radio_button_tag 'settings[calibre_web_protocol]', "http", (settings["calibre_web_protocol"] == "http" ) %>
+          </p>
+          <p>
+            <label><%= "https"  %></label>
+              <%= radio_button_tag 'settings[calibre_web_protocol]', "https", (settings["calibre_web_protocol"] == "https" ) %>
+          </p>
       </td>
-      <td>
-        <label for="calibre_web_protocol_https">https</label>
-        <input type="radio" id="calibre_web_protocol_https" 
-                           value="https" 
-                           name="settings[calibre_web_protocol]" >
-      </td>
+
+
+
+
+
     </tr>
 
     <tr>
@@ -51,6 +54,30 @@
                            value="<%= settings['calibre_web_port'] %>" 
                            name="settings[calibre_web_port]" >
       </td>
+    </tr>
+
+    <tr>
+      <th>Extensions</th>
+      <td>
+          <p>
+            <% ext=".pdf" %>
+            <label><%= ext  %></label>
+              <%= check_box_tag 'settings[extensions][]', ext, (settings["extensions"].include? ext ) %>
+          </p>
+          <p>
+            <% ext=".epub" %>
+            <label><%= ext  %></label>
+              <%= check_box_tag 'settings[extensions][]', ext, (settings["extensions"].include? ext ) %>
+          </p>
+          <p>
+            <% ext=".azw3" %>
+            <label><%= ext  %></label>
+              <%= check_box_tag 'settings[extensions][]', ext, (settings["extensions"].include? ext ) %>
+          </p>
+
+
+      </td>
+      
     </tr>
 
 
