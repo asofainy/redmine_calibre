@@ -1,4 +1,7 @@
   <% if Setting.plugin_redmine_calibre["extensions"].include? File.extname(filename) %> 
-    <span class="icon icon-magnifier icon-magnifier"><a href="<%= Setting.plugin_redmine_calibre["calibre_web_protocol"] + "://" + Setting.plugin_redmine_calibre["calibre_web_hostname"] + ":" + Setting.plugin_redmine_calibre["calibre_web_port"] + "/search/stored/?query=" + File.basename(filename, ".*") %>" target="_blank">Calibre (Web)</a></span>
+    <!-- 
+      <span class="icon icon-magnifier icon-magnifier"><a href="<%= Setting.plugin_redmine_calibre["calibre_web_protocol"] + "://" + Setting.plugin_redmine_calibre["calibre_web_hostname"] + ":" + Setting.plugin_redmine_calibre["calibre_web_port"] + "/search/stored/?query=" + File.basename(filename, ".*") %>" target="_blank">Calibre (Web)</a></span>
+    -->
+    <span class="icon icon-magnifier icon-magnifier"><a href="<%= Setting.plugin_redmine_calibre["calibre_web_protocol"] + "://" + Setting.plugin_redmine_calibre["calibre_web_hostname"] + Setting.plugin_redmine_calibre["calibre_web_port"] + "/#library_id= "+ Setting.plugin_redmine_calibre["calibre_web_library_id"] + "&panel=book_list&sort=timestamp.desc&search=kubernetes" + File.basename(filename, ".*") %>" target="_blank">Calibre (Web)</a></span>
     <span class="icon icon-magnifier icon-magnifier"><a href="calibre://search/<%= Setting.plugin_redmine_calibre["calibre_library"] + "?q=" + File.basename(filename, ".*") %>" target="_blank">Calibre (Desktop) </a></span>       
   <% end %>
